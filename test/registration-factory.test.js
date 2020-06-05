@@ -44,7 +44,6 @@ describe("The Factory Function", function () {
 
 
 
-
             var theObject={
                 "CJ-1478":0,"CA-1953":0,"CL-0000":0,"CL-25891":0
             };
