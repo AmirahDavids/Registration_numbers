@@ -1,0 +1,12 @@
+.number-plates{
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    height: 20px;
+    width :80px;
+    background-color: yellow;
+    text-align: center;
+    border: black 2px solid;
+    border-radius: 8%;
+    list-style: none;
+}
