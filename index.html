@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/registration_number.css">
+    <link rel="stylesheet" href="/css/registration_numbers.css">
     <title>Registration Numbers</title>
 </head>
+
 <body>
+    <h2>Registration Numbers</h2 hjuygkiu>
+
+    <input type="text" id="inputBox">
+    <button id="addButton">add</button>
+
+
+    <label for="town">Choose a town:</label>
+    <select name="towns" id="town">
+        <option value="">All</option>
+        <option value="CA">Cape Town</option>
+        <option value="CJ">Paarl</option>
+        <option value="CY">Bellville</option>
+    </select>
+
+
+    <ul id="list-reg">
+       
+    </ul>
+
+
     <script src="/js/registration-factory.js"></script>
-    <script src="/js/registration-dom.js"></script> 
+    <script src="/js/registration-dom.js"></script>
 </body>
+
 </html>
