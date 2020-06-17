@@ -4,31 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/yourcode.js"></script>
     <link rel="stylesheet" href="/css/registration_numbers.css">
     <title>Registration Numbers</title>
 </head>
 
 <body>
-    <h2>Registration Numbers</h2>
-    <button id="resetButton">reset</button>
-    <input type="text" id="inputBox">
-    <button id="addButton">add</button>
+    <div class="container">
+        <h1>Registration Numbers</h1>
+        <p id="message"></p>
 
+        <input type="text" id="inputBox">
+        <button id="addButton">Add</button>
+        <div class="space">
+            <label for="town">Filter by town:</label>
+            <select name="towns" id="town">
+                <option value="">All</option>
+                <option value="CA">Cape Town</option>
+                <option value="CJ">Paarl</option>
+                <option value="CY">Bellville</option>
+            </select>
+        </div>
+        <ul id="displayList">
+        </ul>
+        <button id="resetButton">reset</button>
 
-    <label for="town">Choose a town:</label>
-    <select name="towns" id="town">
-        <option value="">All</option>
-        <option value="CA">Cape Town</option>
-        <option value="CJ">Paarl</option>
-        <option value="CY">Bellville</option>
-    </select>
-
-
-    <ul id="displayList">
-       
-    </ul>
-
-
+    </div>
     <script src="/js/registration-factory.js"></script>
     <script src="/js/registration-dom.js"></script>
 </body>

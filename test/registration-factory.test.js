@@ -55,11 +55,11 @@ describe("The Factory Function", function () {
     describe("The validateReg Function", function () {
         it("sholud return true if registration is from valid Towns list", function () {
             var factory = Factory();
-            assert.equal(true, factory.validateReg(factory.getCode("CA 123-456")));
+            assert.equal(true, factory.validateReg("CA 123-456"));
         });
         it("sholud return true if registration is from valid Towns list", function () {
             var factory = Factory();
-            assert.equal(false, factory.validateReg(factory.getCode("CK 123-456")));
+            assert.equal(false, factory.validateReg("CK 123-456"));
         });
     });
     describe("The getCode Function", function () {
@@ -69,7 +69,7 @@ describe("The Factory Function", function () {
         });
         it("should get the town code from the user input", function () {
             var factory = Factory();
-            assert.equal("CL", factory.getCode("CL 123658"));
+            assert.equal("CY", factory.getCode("CY 123658"));
         });
         it("should get the town code from the user input", function () {
             var factory = Factory();
@@ -81,25 +81,25 @@ describe("The Factory Function", function () {
             var factory = Factory();
             factory.addReg("CJ-1478")
             factory.addReg("CA-1953")
-            factory.addReg("CL-0000")
-            factory.addReg("CL-25891")
+            factory.addReg("CY-0000")
+            factory.addReg("CY-25891")
             assert.deepEqual(["CA-1953"], factory.filterByTown("CA"));
         });
         it("should return plates from Paarl only", function () {
             var factory = Factory();
             factory.addReg("CJ-1478")
             factory.addReg("CA-1953")
-            factory.addReg("CL-0000")
-            factory.addReg("CL-25891")
+            factory.addReg("CY-0000")
+            factory.addReg("CY-25891")
             assert.deepEqual(["CJ-1478"], factory.filterByTown("CJ"));
         });
-        it("should return plates from Stellenbosch only", function () {
+        it("should return plates from Bellville only", function () {
             var factory = Factory();
             factory.addReg("CJ-1478")
             factory.addReg("CA-1953")
-            factory.addReg("CL-0000")
-            factory.addReg("CL-25891")
-            assert.deepEqual([ 'CL-0000', 'CL-25891'], factory.filterByTown("CL"));
+            factory.addReg("CY-0000")
+            factory.addReg("CY-25891")
+            assert.deepEqual([ 'CY-0000', 'CY-25891'], factory.filterByTown("CY"));
         });
     });
 });
