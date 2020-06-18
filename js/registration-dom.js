@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", function () {
     });
 
     resetBtn.addEventListener("click", function () {
-        registrationFactory.resetBtn();
+        reset();
         location.reload();
     });
 
@@ -63,5 +63,9 @@ window.addEventListener("DOMContentLoaded", function () {
         newListItem.classList.add("number-plates")
         listToBeDisplayed.appendChild(newListItem);
          listToBeDisplayed.insertBefore(newListItem, listToBeDisplayed.childNodes[0]);
+    }
+    
+    function reset() {
+        localStorage.clear("registrations");
     }
 });

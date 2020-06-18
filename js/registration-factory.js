@@ -57,18 +57,12 @@ var Factory = function (stored) {
         return list;
     }
 
-    function resetBtn() {
-        regMap = {};
-        localStorage.clear("registrations");
-    }
-
     return {
         addReg,
         getRegList,
         getAllPlates,
         validateReg,
         filterByTown,
-        resetBtn,
         getCode
     }
 }
