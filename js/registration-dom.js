@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function() {
 
     var inputBox = document.getElementById("inputBox")
     var addButton = document.getElementById("addButton");
@@ -13,40 +13,40 @@ window.addEventListener("DOMContentLoaded", function () {
 
     var registrationFactory = Factory(stored);
 
-    window.addEventListener("load", function () {
+    window.addEventListener("load", function() {
         var list = registrationFactory.getRegList();
         displayRegistrations(list);
     });
 
-    addButton.addEventListener("click", function () {
+    addButton.addEventListener("click", function() {
 
         var input = inputBox.value.toUpperCase();
-        
+
         var isValid = registrationFactory.validateReg(input);
 
 
         if (isValid) {
-            var added = registrationFactory.addReg(input);
+            var added = registrationFactory.addReg(registrationFactory.formatPlate(input));
             if (added) {
-                createPlate(input);
+                createPlate(registrationFactory.formatPlate(input));
                 localStorage['plates'] = JSON.stringify(registrationFactory.getAllPlates());
             }
-        } else{
-            message.innerHTML = "Please enter a valid registration like this CAA 123-456"; 
+        } else {
+            message.innerHTML = "Please enter a valid registration like this CA 123456";
         }
         inputBox.value = "";
         inputBox.focus();
     });
 
-    townSelect.addEventListener("change",function(){
+    townSelect.addEventListener("change", function() {
         listToBeDisplayed.innerHTML = "";
 
         var list = registrationFactory.filterByTown(townSelect.value);
         displayRegistrations(list);
-        
+
     });
 
-    resetBtn.addEventListener("click", function () {
+    resetBtn.addEventListener("click", function() {
         reset();
         location.reload();
     });
@@ -62,9 +62,9 @@ window.addEventListener("DOMContentLoaded", function () {
         newListItem.textContent = input.toUpperCase();
         newListItem.classList.add("number-plates")
         listToBeDisplayed.appendChild(newListItem);
-         listToBeDisplayed.insertBefore(newListItem, listToBeDisplayed.childNodes[0]);
+        listToBeDisplayed.insertBefore(newListItem, listToBeDisplayed.childNodes[0]);
     }
-    
+
     function reset() {
         localStorage.clear("registrations");
     }

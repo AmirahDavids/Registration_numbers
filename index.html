@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/registration_numbers.css">
-    <title>Registration Numbers</title>
+    <title>Amirah | Registration Website</title>
 </head>
 
 <body>
     <div class="container">
         <h1>Registration Numbers</h1>
-        <p id="message"></p>
-        
-        <input type="text" id="inputBox">
-        <button id="addButton">Add</button>
+        <div class="space">
+            <input type="text" id="inputBox" class="small-input" maxlength="10">
+        </div>
+        <div class="space">
+            <button id="addButton">Add</button>
+            <button id="resetButton">reset</button>
+        </div>
         <div class="space">
             <label for="town">Filter by town:</label>
             <select name="towns" id="town">
@@ -24,13 +27,16 @@
                 <option value="CY">Bellville</option>
             </select>
         </div>
-        <ul id="displayList">
-        </ul>
-        <button id="resetButton">reset</button>
-        
+        <div class="space">
+            <p id="message"></p>
+        </div>
+        <div class="list-box">
+            <ul id="displayList" class="list-of-plates">
+            </ul>
+        </div>
     </div>
-    
 </body>
 <script src="./js/registration-factory.js"></script>
 <script src="./js/registration-dom.js"></script>
+
 </html>

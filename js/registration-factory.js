@@ -1,4 +1,4 @@
-var Factory = function (stored) {
+var Factory = function(stored) {
 
     var regMap = stored || {};
 
@@ -14,15 +14,32 @@ var Factory = function (stored) {
         return Object.keys(regMap);
     }
 
+    function formatPlate(plate) {
+        var array = plate.split(" ")[1]
+        var formattedPlate = "";
+
+        if (array.length == 6) {
+            for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                formattedPlate += element;
+                if (index == 2) {
+                    formattedPlate += "-";
+                }
+            }
+        }
+        return plate.split(" ")[0] + " " + formattedPlate;
+
+    }
+
     function validateReg(input) {
 
-        var validCharacters = /^[\w -]+$/;
+        var validCharacters = /^[\w ]+$/;
 
-        var validTowns = ["CA","CAA", "CY", "CJ"];
+        var validTowns = ["CA", "CAA", "CY", "CJ"];
 
-        
+
         if (input.match(validCharacters)) {
-            
+
             for (let i = 0; i < validTowns.length; i++) {
                 const element = validTowns[i];
                 if (element == getCode(input)) {
@@ -44,7 +61,7 @@ var Factory = function (stored) {
     function filterByTown(loc) {
         var regList = getRegList();
 
-        if(loc == ""){
+        if (loc == "") {
             return regList;
         }
         var list = []
@@ -63,7 +80,7 @@ var Factory = function (stored) {
         getAllPlates,
         validateReg,
         filterByTown,
-        getCode
+        getCode,
+        formatPlate
     }
 }
-
