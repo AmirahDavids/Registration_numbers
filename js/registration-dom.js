@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", function () {
 
     var inputBox = document.getElementById("inputBox")
     var addButton = document.getElementById("addButton");
@@ -13,23 +13,27 @@ window.addEventListener("DOMContentLoaded", function() {
 
     var registrationFactory = Factory(stored);
 
-    window.addEventListener("load", function() {
+    window.addEventListener("load", function () {
         var list = registrationFactory.getRegList();
         displayRegistrations(list);
     });
 
-    addButton.addEventListener("click", function() {
+    addButton.addEventListener("click", function () {
 
         var input = inputBox.value.toUpperCase();
 
+
+        var formattedReg = input; // registrationFactory.formatPlate(input)
+
         var isValid = registrationFactory.validateReg(input);
 
-
         if (isValid) {
-            var added = registrationFactory.addReg(registrationFactory.formatPlate(input));
+            var added = registrationFactory.addReg(formattedReg);
             if (added) {
-                createPlate(registrationFactory.formatPlate(input));
-                localStorage['plates'] = JSON.stringify(registrationFactory.getAllPlates());
+                createPlate(formattedReg);
+
+                var mapp = registrationFactory.getAllPlates();
+                localStorage['plates'] = JSON.stringify(mapp);
             }
         } else {
             message.innerHTML = "Please enter a valid registration like this CA 123456";
@@ -38,7 +42,7 @@ window.addEventListener("DOMContentLoaded", function() {
         inputBox.focus();
     });
 
-    townSelect.addEventListener("change", function() {
+    townSelect.addEventListener("change", function () {
         listToBeDisplayed.innerHTML = "";
 
         var list = registrationFactory.filterByTown(townSelect.value);
@@ -46,7 +50,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
     });
 
-    resetBtn.addEventListener("click", function() {
+    resetBtn.addEventListener("click", function () {
         reset();
         location.reload();
     });
