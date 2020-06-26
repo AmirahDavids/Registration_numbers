@@ -17,10 +17,8 @@ var Factory = function (stored) {
     function formatPlate(plate) {
 
         var code = plate.split(" ")[0];
-        var regNumber = plate.split(" ")[1].replace(/-/g,); split
+        var regNumber = plate.split(" ")[1].replace(/-/g,);
         var formattedPlate = "";
-        console.log(regNumber);
-
         var length = regNumber.length;
 
         for (let i = 0; i < regNumber.length; i++) {
@@ -37,13 +35,13 @@ var Factory = function (stored) {
 
     function validateReg(input) {
 
-        
+
         var validCharacters = /^[\w -]+$/;
-    
+
         var validTowns = ["CA", "CY", "CJ"];
-    
+
         if (input.match(validCharacters)) {
-    
+
             for (let i = 0; i < validTowns.length; i++) {
                 const element = validTowns[i];
                 if (element == getCode(input)) {
@@ -51,8 +49,8 @@ var Factory = function (stored) {
                 }
             }
         }
-        
-         return false
+
+        return false
     }
 
     function getCode(userinput) {
